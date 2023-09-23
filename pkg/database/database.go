@@ -11,8 +11,8 @@ import (
 var DB *gorm.DB
 var SQLDB *sql.DB
 
-// Connection 连接数据库
-func Connection(dbConfig gorm.Dialector, _logger gormlogger.Interface) {
+// Connect 连接数据库
+func Connect(dbConfig gorm.Dialector, _logger gormlogger.Interface) {
 
 	// 使用 gorm.open 连接数据库
 	var err error
