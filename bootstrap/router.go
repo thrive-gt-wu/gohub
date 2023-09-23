@@ -4,24 +4,26 @@ import (
 	"gohub/routes"
 	"net/http"
 	"strings"
+	"gohub/app/http/middlewares"
 
 	"github.com/gin-gonic/gin"
 )
 
 func SetupRoute(router *gin.Engine) {
 	// 注册全局中间件
-	RegisterGlobalMiddleware(router)
+	registerGlobalMiddleware(router)
 
 	// 注册 api 路由
 	routes.RegisterAPIRoutes(router)
 }
 
 
-func RegisterGlobalMiddleware(router *gin.Engine){
-	router.Use(
-		gin.Logger(),
-		gin.Recovery(),
-	)
+
+func registerGlobalMiddleware(router *gin.Engine) {
+    router.Use(
+        middlewares.Logger(),
+        gin.Recovery(),
+    )
 }
 
 func Setup404Handler(router *gin.Engine){
