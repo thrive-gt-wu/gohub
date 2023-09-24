@@ -2,17 +2,17 @@
 package app
 
 import (
-    "gohub/pkg/config"
+	"gohub/pkg/config"
 )
 
 func IsLocal() bool {
-    return config.Get("app.env") == "local"
+	return config.Get("app.env") == "local"
 }
 
 func IsProduction() bool {
-    return config.Get("app.env") == "production"
+	return config.Get("app.env") == "production"
 }
 
 func IsTesting() bool {
-    return config.Get("app.env") == "testing"
+	return config.Get("app.env") == "testing"
 }
