@@ -17,6 +17,7 @@ type SignupController struct {
 
 // IsPhoneExist 检测手机号是否被注册
 func (sc *SignupController) IsPhoneExist(c *gin.Context) {
+	// panic("这是 panic 测试")
 	// 获取请求参数，并做表单验证
 	request := requests.SignupPhoneExistRequest{}
 	if ok := requests.Validate(c, &request, requests.SignupPhoneExist); !ok {
