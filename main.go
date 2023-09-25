@@ -7,6 +7,7 @@ import (
     btsConfig "gohub/config"
     "gohub/pkg/config"
 
+
     "github.com/gin-gonic/gin"
 )
 
@@ -40,7 +41,7 @@ func main() {
 
     // 初始化 Redis
     bootstrap.SetupRedis()
-    
+
     // 初始化路由绑定
     bootstrap.SetupRoute(router)
 
