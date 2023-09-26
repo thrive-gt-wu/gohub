@@ -1,14 +1,15 @@
 package main
 
 import (
-    "flag"
-    "fmt"
-    "gohub/bootstrap"
-    btsConfig "gohub/config"
-    "gohub/pkg/config"
+	"flag"
+	"fmt"
+	"gohub/bootstrap"
+	btsConfig "gohub/config"
+	// "gohub/pkg/captcha"
+	"gohub/pkg/config"
+	// "gohub/pkg/logger"
 
-
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 func init() {
