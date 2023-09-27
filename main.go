@@ -6,11 +6,12 @@ import (
 	"gohub/app/http/middlewares"
 	"gohub/bootstrap"
 	btsConfig "gohub/config"
+	"net/http"
 
 	// "gohub/pkg/captcha"
-	"gohub/pkg/auth"
+	_ "gohub/pkg/auth"
 	"gohub/pkg/config"
-	"gohub/pkg/response"
+	_ "gohub/pkg/response"
 
 	// "gohub/pkg/logger"
 
@@ -55,6 +56,10 @@ func main() {
     //     userModel := auth.CurrentUser(c)
     //     response.Data(c, userModel)
     // })
+
+    router.GET("/test_guest", middlewares.GuestJWT(), func(c *gin.Context) {
+        c.String(http.StatusOK,  "Hello guest")
+    })
 
     // 运行服务
     err := router.Run(":" + config.Get("app.port"))
