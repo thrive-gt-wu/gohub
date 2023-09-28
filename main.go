@@ -8,6 +8,7 @@ import (
     "gohub/pkg/config"
     "gohub/pkg/console"
     "os"
+    "gohub/app/cmd/make"
 
     "github.com/spf13/cobra"
 )
@@ -49,6 +50,9 @@ func main() {
         cmd.CmdServe,
         cmd.CmdKey,
         cmd.CmdPlay,
+        make.CmdMake,
+        // // 测试，需要go run main.go make cmd testCommand
+        // cmd.CmdTestCommand,
     )
 
     // 配置默认运行 Web 服务
