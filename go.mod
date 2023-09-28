@@ -7,6 +7,7 @@ require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
+	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
 	github.com/mojocn/base64Captcha v1.3.5
 	github.com/redis/go-redis/v9 v9.2.1
 	github.com/spf13/cast v1.5.1
@@ -20,7 +21,10 @@ require (
 	gorm.io/gorm v1.25.4
 )
 
-require github.com/pkg/errors v0.9.1 // indirect
+require (
+	github.com/mattn/go-colorable v0.1.12 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
+)
 
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
