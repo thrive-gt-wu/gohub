@@ -53,6 +53,7 @@ func main() {
         make.CmdMake,
         // // 测试，需要go run main.go make cmd testCommand
         // cmd.CmdTestCommand,
+        cmd.CmdMigrate,
     )
 
     // 配置默认运行 Web 服务
