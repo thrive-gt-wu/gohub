@@ -2,7 +2,7 @@ package seeders
 
 import (
     "fmt"
-    "gohub/app/models/user"
+    _"gohub/app/models/user"
     "gohub/database/factories"
     "gohub/pkg/console"
     "gohub/pkg/logger"
