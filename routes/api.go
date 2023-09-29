@@ -4,6 +4,7 @@ package routes
 import (
     "gohub/app/http/controllers/api/v1/auth"
     "gohub/app/http/middlewares"
+    controllers "gohub/app/http/controllers/api/v1"
 
     "github.com/gin-gonic/gin"
 )
@@ -18,7 +19,6 @@ func RegisterAPIRoutes(r *gin.Engine) {
     // 作为参考 Github API 每小时最多 60 个请求（根据 IP）。
     // 测试时，可以调高一点。
     v1.Use(middlewares.LimitIP("200-H"))
-
     {
         authGroup := v1.Group("/auth")
         // 限流中间件：每小时限流，作为参考 Github API 每小时最多 60 个请求（根据 IP）
@@ -50,5 +50,10 @@ func RegisterAPIRoutes(r *gin.Engine) {
             // 图片验证码
             authGroup.POST("/verify-codes/captcha", middlewares.LimitPerRoute("50-H"), vcc.ShowCaptcha)
         }
+        
+        uc := new(controllers.UsersController)
+        
+        // 获取当前用户
+        v1.GET("/user", middlewares.AuthJWT(), uc.CurrentUser)
     }
 }
