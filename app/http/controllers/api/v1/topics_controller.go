@@ -1,12 +1,13 @@
 package v1
 
 import (
-    "gohub/app/models/topic"
-    "gohub/app/requests"
-    "gohub/pkg/auth"
-    "gohub/pkg/response"
+	"gohub/app/models/topic"
+	"gohub/app/policies"
+	"gohub/app/requests"
+	"gohub/pkg/auth"
+	"gohub/pkg/response"
 
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 type TopicsController struct {
@@ -39,6 +40,11 @@ func (ctrl *TopicsController) Update(c *gin.Context) {
     topicModel := topic.Get(c.Param("id"))
     if topicModel.ID == 0 {
         response.Abort404(c)
+        return
+    }
+
+    if ok := policies.CanModifyTopic(c, topicModel); !ok {
+        response.Abort403(c)
         return
     }
 
